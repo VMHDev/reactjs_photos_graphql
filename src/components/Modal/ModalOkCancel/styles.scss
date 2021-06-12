@@ -1,0 +1,9 @@
+.modal {
+  &__header {
+    padding: 1rem 1rem 0.5rem 1rem;
+    font-weight: bold;
+  }
+  &__footer {
+    border-top: none;
+  }
+}

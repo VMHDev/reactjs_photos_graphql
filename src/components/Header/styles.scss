@@ -1,0 +1,23 @@
+.header {
+  font-size: 1.25rem;
+  z-index: 99;
+
+  &__ul {
+    align-items: center;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  &__link {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 1.25rem;
+
+    &:hover {
+      color: rgba(0, 0, 0, 0.7);
+      text-decoration: none;
+    }
+  }
+}
