@@ -1,0 +1,9 @@
+.photo-app {
+  &__spinner {
+    width: 3rem;
+    height: 3rem;
+  }
+  &__page-wrap {
+    min-height: 100vh;
+  }
+}
