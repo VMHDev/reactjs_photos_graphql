@@ -84,8 +84,11 @@ const LoginPage = (props) => {
         email: values.email,
         password: Base64.encode(values.password),
       });
+      console.log('response', response);
 
-      message = response.message ? response.message : LOGIN_FAILED;
+      message = response?.data?.message
+        ? response?.data?.message
+        : LOGIN_FAILED;
       if (response.success) {
         isSuccess = true;
       }

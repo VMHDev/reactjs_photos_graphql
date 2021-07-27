@@ -17,6 +17,7 @@ const app = createSlice({
       state.isShowLoading = action.payload;
     },
     showModalOk(state, action) {
+      console.log('action.payload', action.payload);
       state.modalOk = action.payload;
     },
     showModalOkCancel(state, action) {

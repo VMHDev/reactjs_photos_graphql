@@ -4,17 +4,35 @@ import { trackPromise } from 'react-promise-tracker';
 import { addLogin, removeLogin } from 'redux/cookieSlice';
 import authApi from 'api/authApi';
 import { timeout } from 'utils/helper';
+import { useMutation } from '@apollo/client';
+import { LOGIN } from 'graphql/auth/mutations';
 
 export const useLogin = () => {
   const dispatch = useDispatch();
+  const [login, loginMutationResult] = useMutation(LOGIN);
 
   const callback = async (params) => {
     try {
       // Call api
-      const response = await trackPromise(authApi.login(params));
+      const { data } = await trackPromise(
+        login({
+          variables: {
+            input: {
+              email: params.email,
+              password: params.password,
+            },
+          },
+        })
+      );
+      const { loading, error } = loginMutationResult;
+      console.log('data', data);
+      const response = { ...data?.login };
+      console.log('response', response);
+      console.log('loading', loading);
+      console.log('error', error);
 
       // Update state
-      if (response?.data.success) {
+      if (response?.success) {
         const userRes = response?.data.user ? response?.data.user : null;
         const tokenRes = response?.data.accessToken
           ? response?.data.accessToken
@@ -36,11 +54,9 @@ export const useLogin = () => {
       }
       // Response
       await trackPromise(timeout(1000));
-      return response?.data;
+      return response;
     } catch (error) {
-      return error.response.data
-        ? error.response.data
-        : { success: false, message: 'Server error' };
+      return { success: false, message: 'Server error' };
     }
   };
   return [callback];

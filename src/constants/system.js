@@ -17,7 +17,7 @@ export const WEB_DOMAIN = process.env.REACT_APP_WEB_DOMAIN
   : 'http://localhost/';
 export const WEB_PORT = process.env.REACT_APP_PORT
   ? process.env.REACT_APP_PORT
-  : '3004';
+  : '3014';
 export const WEB_URL = WEB_DOMAIN + WEB_PORT;
 
 // Timezone
@@ -37,12 +37,12 @@ export const COOKIES_EXPIRE = process.env.REACT_APP_COOKIES_EXPIRE
 // Tên của cookie token
 export const COOKIES_TOKEN_NAME = process.env.REACT_APP_COOKIES_TOKEN_NAME
   ? process.env.REACT_APP_COOKIES_TOKEN_NAME
-  : 'photos_token';
+  : 'photos_token_graph';
 // Tên của cookie user login
 export const COOKIES_USERLOGIN_NAME = process.env
   .REACT_APP_COOKIES_USERLOGIN_NAME
   ? process.env.REACT_APP_COOKIES_USERLOGIN_NAME
-  : 'photos_user_login';
+  : 'photos_user_login_graph';
 
 // Đường dẫn gọi API
 export const API_URL =
@@ -52,4 +52,13 @@ export const API_URL =
       : 'http://localhost:3003/api'
     : process.env.REACT_APP_API_URL_PRD
     ? process.env.REACT_APP_API_URL_PRD
+    : 'https://somedeployurl';
+
+export const API_URL_GRAPH =
+  process.env.NODE_ENV !== 'production'
+    ? process.env.REACT_APP_API_URL_GRAPH_DEV
+      ? process.env.REACT_APP_API_URL_GRAPH_DEV
+      : 'http://localhost:3013'
+    : process.env.REACT_APP_API_URL_GRAPH_PRD
+    ? process.env.REACT_APP_API_URL_GRAPH_PRD
     : 'https://somedeployurl';

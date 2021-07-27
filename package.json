@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.3.20",
     "@reduxjs/toolkit": "^1.5.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -12,6 +13,7 @@
     "crypto-js": "^4.0.0",
     "crypto-random-string": "^4.0.0",
     "formik": "^2.2.6",
+    "graphql": "^15.5.0",
     "js-base64": "^3.6.0",
     "js-cookie": "^2.2.1",
     "jsonwebtoken": "^8.5.1",
